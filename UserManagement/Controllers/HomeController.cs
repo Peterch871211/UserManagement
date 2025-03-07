@@ -15,6 +15,25 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        var userId = HttpContext.Session.GetString("UserId");
+        var userRole = HttpContext.Session.GetString("UserRole") ?? "Viewer"; // 預設 Viewer 避免 null
+
+        Console.WriteLine($"[DEBUG] 進入 Home/Index - UserId: {userId}, UserRole: {userRole}");
+
+
+        if (string.IsNullOrEmpty(userId))
+        {
+            Console.WriteLine("[DEBUG] 使用者未登入，跳轉到 Login 頁面");
+            return RedirectToAction("Login", "Account");
+        }
+
+        //  確保 `Viewer` 停留在 `Home`，不會重導到 `Users/Index`
+        if (userRole == "Viewer")
+        {
+            Console.WriteLine("[DEBUG] Viewer 已登入，停留在 Home 頁面");
+            return View(); //不要 Redirect，讓 Viewer 停留在 Home
+        }
+
         return View();
     }
 

@@ -19,12 +19,30 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="">User</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Create">Create</a>
-                        </li>
+                        @if (!string.IsNullOrEmpty(Context.Session.GetString("UserId")))
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="" asp-action="">歡迎, @Context.Session.GetString("UserName")</a>
+
+                            @if (Context.Session.GetString("UserRole") == "Admin" || Context.Session.GetString("UserRole") == "User")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Index">User</a>
+                                </li>
+                            }
+
+                            @if (Context.Session.GetString("UserRole") == "Admin")
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-area="" asp-controller="Users" asp-action="Create">Create</a>
+                                </li>
+                            }
+
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Logout">登出</a>
+                        }
+                        else
+                        {
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Account" asp-action="Login">登入</a>
+                        }
                     </ul>
                 </div>
             </div>

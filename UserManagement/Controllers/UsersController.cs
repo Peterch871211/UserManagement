@@ -22,6 +22,25 @@ namespace UserManagement.Controllers
         // GET: Users
         public async Task<IActionResult> Index()
         {
+            var userId = HttpContext.Session.GetString("UserId");
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+            Console.WriteLine($"[DEBUG] 目前登入的使用者 ID：{userId}");
+            Console.WriteLine($"[DEBUG] 目前登入的使用者角色：{userRole}");
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                Console.WriteLine("[DEBUG] 使用者未登入，跳轉回 Login 頁面");
+                return RedirectToAction("Login", "Account");
+            }
+
+            if (userRole != "Admin" && userRole != "User")
+            {
+                Console.WriteLine("[DEBUG] 權限不足，跳轉到 Home 頁面");
+                return RedirectToAction("Index", "Home");
+            }
+
+            Console.WriteLine("[DEBUG] 使用者已登入，顯示使用者列表");
             return View(await _context.Users.ToListAsync());
         }
 
@@ -46,6 +65,14 @@ namespace UserManagement.Controllers
         // GET: Users/Create
         public IActionResult Create()
         {
+            var userRole = HttpContext.Session.GetString("UserRole");
+
+            if (userRole != "Admin")
+            {
+                Console.WriteLine("[DEBUG] 權限不足，跳轉到 Home 頁面");
+                return RedirectToAction("Index", "Home");
+            }
+
             return View();
         }
 
@@ -54,7 +81,7 @@ namespace UserManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Phone")] User user)
+        public async Task<IActionResult> Create([Bind("Id,Name,Email,Password,Phone,Role")] User user)
         {
 
             try
@@ -93,7 +120,7 @@ namespace UserManagement.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Phone")] User user)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Phone,Role")] User user)
         {
             if (id != user.Id)
             {

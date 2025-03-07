@@ -33,6 +33,14 @@
                 <span asp-validation-for="Phone" class="text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Role">角色</label>
+                <select asp-for="Role" class="form-control">
+                    <option value="Admin">Admin（管理員）</option>
+                    <option value="User">User（一般使用者）</option>
+                    <option value="Viewer">Viewer（訪客）</option>
+                </select>
+            </div>
+            <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
         </form>
