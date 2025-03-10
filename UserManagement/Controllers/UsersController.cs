@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
@@ -122,15 +123,49 @@ namespace UserManagement.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Name,Email,Password,Phone,Role")] User user)
         {
+            var currentUserId = HttpContext.Session.GetString("UserId"); // 取得目前登入的使用者 ID
+            var currentUserRole = HttpContext.Session.GetString("UserRole"); // 取得目前登入的使用者角色
+
             if (id != user.Id)
             {
                 return NotFound();
+            }
+
+            //  如果 `Admin` 嘗試更改自己的 `Role`，阻止修改
+            if (currentUserId == user.Id.ToString() && currentUserRole == "Admin" && user.Role != "Admin")
+            {
+                Console.WriteLine("[DEBUG] Admin 嘗試修改自己的 Role，被拒絕！");
+                ModelState.AddModelError("", "你不能更改自己的角色！");
+                return View(user);
             }
 
             if (ModelState.IsValid)
             {
                 try
                 {
+                    // 確保 `Password` 沒有變成明文
+                    var existingUser = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
+                    if (existingUser == null)
+                    {
+                        return NotFound();
+                    }
+
+                    if (string.IsNullOrEmpty(user.Password))
+                    {
+                        Console.WriteLine($"[DEBUG] 編輯時密碼未變更，保留原密碼：{existingUser.Password}");
+                        user.Password = existingUser.Password;
+                    }
+                    else
+                    {
+                        Console.WriteLine($"[DEBUG] 編輯時密碼已變更");
+                        Console.WriteLine($"[DEBUG] 原密碼哈希值: {existingUser.Password}");
+
+                        // ✅ 直接存入明文密碼，讓 `User.cs` 自動加密
+                        user.Password = user.Password;
+
+                        Console.WriteLine($"[DEBUG] 存入的密碼（未加密）: {user.Password}");
+                    }
+
                     _context.Update(user);
                     await _context.SaveChangesAsync();
                 }
@@ -149,6 +184,7 @@ namespace UserManagement.Controllers
             }
             return View(user);
         }
+
 
         // GET: Users/Delete/5
         public async Task<IActionResult> Delete(int? id)
