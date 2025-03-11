@@ -130,13 +130,27 @@ namespace UserManagement.Controllers
             {
                 return NotFound();
             }
+            var existing = await _context.Users.AsNoTracking().FirstOrDefaultAsync(u => u.Id == id);
 
-            //  如果 `Admin` 嘗試更改自己的 `Role`，阻止修改
-            if (currentUserId == user.Id.ToString() && currentUserRole == "Admin" && user.Role != "Admin")
+            //  限制 Admin 不能修改自己的 Role，但允許修改其他 Admin
+            if (currentUserId == user.Id.ToString() && user.Role != "Admin")
             {
                 Console.WriteLine("[DEBUG] Admin 嘗試修改自己的 Role，被拒絕！");
                 ModelState.AddModelError("", "你不能更改自己的角色！");
                 return View(user);
+            }
+
+            //  允許 Admin 變更其他 Admin，但不能降級最後一位 Admin
+            if (existing.Role == "Admin" && user.Role != "Admin")
+            {
+                int adminCount = _context.Users.Count(u => u.Role == "Admin");
+
+                if (adminCount <= 1)
+                {
+                    Console.WriteLine("[DEBUG] 嘗試降級最後一個 Admin，被拒絕！");
+                    ModelState.AddModelError("", "系統至少需要一名管理員，無法變更！");
+                    return View(user);
+                }
             }
 
             if (ModelState.IsValid)

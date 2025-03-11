@@ -36,12 +36,12 @@
             <div class="form-group">
                 <label asp-for="Role">角色</label>
 
-                @if (Context.Session.GetString("UserRole") == "Admin" && Model.Role == "Admin")
+                @if (Context.Session.GetString("UserId") == Model.Id.ToString() && Context.Session.GetString("UserRole") == "Admin")
                 {
-                    <!-- 如果目標使用者是 Admin，則 Role 不能修改 -->
+                    <!--  如果是自己，Role 設為 `readonly` -->
                     <input asp-for="Role" class="form-control" readonly />
                 }
-                else
+                else if (Context.Session.GetString("UserRole") == "Admin")
                 {
                     <select asp-for="Role" class="form-control">
                         <option value="Admin">Admin（管理員）</option>
