@@ -10,10 +10,12 @@ namespace UserManagement.Controllers
     public class AccountController : Controller
     {
         private readonly ApplicationDbContext _context;
+        private readonly ILogger<AccountController> _logger;
 
-        public AccountController(ApplicationDbContext context)
+        public AccountController(ApplicationDbContext context, ILogger<AccountController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         [HttpGet]
@@ -23,7 +25,7 @@ namespace UserManagement.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [IgnoreAntiforgeryToken]
         public IActionResult Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -50,6 +52,10 @@ namespace UserManagement.Controllers
                 Role = model.Role
             };
 
+            HttpContext.Session.SetString("UserId", newUser.Id.ToString());
+            HttpContext.Session.SetString("UserName", newUser.Name);
+            HttpContext.Session.SetString("UserRole", newUser.Role);
+
             _context.Users.Add(newUser);
             _context.SaveChanges();
 
@@ -73,7 +79,7 @@ namespace UserManagement.Controllers
         }
         //驗證登入資訊
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [IgnoreAntiforgeryToken]
         public IActionResult Login(LoginViewModel model)
         {
 
@@ -85,7 +91,7 @@ namespace UserManagement.Controllers
             var user = _context.Users.FirstOrDefault(u => u.Email == model.Email);
             if (user == null)
             {
-                Console.WriteLine(" 帳號不存在");
+                _logger.LogWarning("[DEBUG] 帳號不存在，Email: {Email}", model.Email);
                 ModelState.AddModelError("Email", "帳號不存在");
                 return View(model);
             }
@@ -100,23 +106,31 @@ namespace UserManagement.Controllers
 
             if (result == PasswordVerificationResult.Failed)
             {
-                Console.WriteLine(" 密碼錯誤");
+                _logger.LogWarning("[DEBUG] 密碼錯誤，Email: {Email}", model.Email);
                 ModelState.AddModelError("Password", "密碼錯誤");
                 return View(model);
             }
 
-            Console.WriteLine(" 登入成功");
             HttpContext.Session.SetString("UserId", user.Id.ToString());
-            HttpContext.Session.SetString("UserName", user.Name); // 存入 Name
+            HttpContext.Session.SetString("UserName", user.Name); 
             HttpContext.Session.SetString("UserRole", user.Role);
 
-            //Debug: 顯示 Session 是否成功儲存
-            Console.WriteLine($"[DEBUG] 登入成功！UserId: {HttpContext.Session.GetString("UserId")}");
-            Console.WriteLine($"[DEBUG] 登入成功！UserName: {HttpContext.Session.GetString("UserName")}");
-            Console.WriteLine($"[DEBUG] 登入成功！UserRole: {HttpContext.Session.GetString("UserRole")}");
 
+            // 測試立即讀取
+            var checkSession = HttpContext.Session.GetString("UserId");
+            if (string.IsNullOrEmpty(checkSession))
+            {
+                _logger.LogError("[ERROR] Session 存入失敗，UserId: {UserId}", user.Id);
+            }
+            else
+            {
+                _logger.LogInformation("[DEBUG] Session 成功存入，UserId: {UserId}", checkSession);
+            }
 
-            return RedirectToAction("Index", "Users"); // 登入成功
+            var sessionUserId = HttpContext.Session.GetString("UserId");
+            _logger.LogInformation("[DEBUG] Session UserId: {SessionUserId}", sessionUserId);
+            _logger.LogInformation("[DEBUG] 嘗試轉跳到 Users/Index");
+            return RedirectToAction("Index", "Users");
         }
 
         public IActionResult ClearSession()
@@ -133,6 +147,30 @@ namespace UserManagement.Controllers
             return RedirectToAction("Login", "Account"); // 導回 Login 頁面
         }
 
+        [HttpGet]
+        public IActionResult TestSession()
+        {
+            var userId = HttpContext.Session.GetString("UserId");
+
+            if (string.IsNullOrEmpty(userId))
+            {
+                var newSessionId = Guid.NewGuid().ToString();
+                HttpContext.Session.SetString("UserId", newSessionId);
+
+                var testRead = HttpContext.Session.GetString("UserId"); // 立即讀取 Session
+                if (string.IsNullOrEmpty(testRead))
+                {
+                    return Content("🔴 Session 立刻丟失，IIS 可能有問題！");
+                }
+
+                return Content("🔴 Session 之前是空的，現在已寫入新值：" + newSessionId);
+            }
+            else
+            {
+                return Content($"🟢 目前的 Session UserId: {userId}");
+            }
+        }
 
     }
+
 }

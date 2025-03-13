@@ -14,36 +14,42 @@ namespace UserManagement.Controllers
     public class UsersController : Controller
     {
         private readonly ApplicationDbContext _context;
-
-        public UsersController(ApplicationDbContext context)
+        private readonly ILogger<UsersController> _logger;
+        public UsersController(ApplicationDbContext context, ILogger<UsersController> logger)
         {
             _context = context;
+            _logger = logger;
         }
 
         // GET: Users
         public async Task<IActionResult> Index()
         {
+            // 使用內建 Logger 來記錄 Log，而不是直接寫入檔案
+            _logger.LogInformation("[DEBUG] 嘗試進入 Users/Index");
+
             var userId = HttpContext.Session.GetString("UserId");
             var userRole = HttpContext.Session.GetString("UserRole");
 
-            Console.WriteLine($"[DEBUG] 目前登入的使用者 ID：{userId}");
-            Console.WriteLine($"[DEBUG] 目前登入的使用者角色：{userRole}");
+            _logger.LogInformation("[DEBUG] 讀取 Session: UserId={UserId}, UserRole={UserRole}", userId, userRole);
 
             if (string.IsNullOrEmpty(userId))
             {
-                Console.WriteLine("[DEBUG] 使用者未登入，跳轉回 Login 頁面");
+                _logger.LogWarning("[DEBUG] 未讀取到 Session，跳轉回 Login");
                 return RedirectToAction("Login", "Account");
             }
 
             if (userRole != "Admin" && userRole != "User")
             {
-                Console.WriteLine("[DEBUG] 權限不足，跳轉到 Home 頁面");
+                _logger.LogWarning("[DEBUG] 權限不足，跳轉到 Home 頁面");
                 return RedirectToAction("Index", "Home");
             }
 
-            Console.WriteLine("[DEBUG] 使用者已登入，顯示使用者列表");
+            _logger.LogInformation("[DEBUG] 使用者已登入，載入使用者列表");
+
+            // 確保 View 正常回傳
             return View(await _context.Users.ToListAsync());
         }
+
 
         // GET: Users/Details/5
         public async Task<IActionResult> Details(int? id)

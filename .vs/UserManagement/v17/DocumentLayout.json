@@ -3,55 +3,35 @@
   "WorkspaceRootPath": "C:\\Users\\User\\source\\repos\\UserManagement\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\users\\edit.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\users\\details.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\users\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\UserManagement\\publish\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\models\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\account\\register.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\account\\login.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\models\\loginviewmodel.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|C:\\WebDeploy\\UserManagement\\web.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\views\\shared\\_layout.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\accountcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|c:\\users\\user\\source\\repos\\usermanagement\\usermanagement\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{CCB76023-1C06-4054-9804-E463ECA9236B}|UserManagement\\UserManagement.csproj|solutionrelative:usermanagement\\controllers\\userscontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -61,169 +41,111 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Edit.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Users\\Edit.cshtml",
-              "RelativeDocumentMoniker": "UserManagement\\Views\\Users\\Edit.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Users\\Edit.cshtml",
-              "RelativeToolTip": "UserManagement\\Views\\Users\\Edit.cshtml",
-              "ViewState": "AgIAAAwAAAAAAAAAAAAAACIAAAASAAAAAAAAAA==",
+              "DocumentIndex": 3,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Home\\Index.cshtml",
+              "RelativeDocumentMoniker": "UserManagement\\Views\\Home\\Index.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Home\\Index.cshtml",
+              "RelativeToolTip": "UserManagement\\Views\\Home\\Index.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T05:35:32.681Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "Register.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Register.cshtml",
-              "RelativeDocumentMoniker": "UserManagement\\Views\\Account\\Register.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Register.cshtml",
-              "RelativeToolTip": "UserManagement\\Views\\Account\\Register.cshtml",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAABEAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T05:49:32.266Z",
+              "WhenOpened": "2025-03-13T07:27:06.454Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
               "Title": "web.config",
-              "DocumentMoniker": "C:\\UserManagement\\publish\\web.config",
-              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\UserManagement\\publish\\web.config",
-              "ToolTip": "C:\\UserManagement\\publish\\web.config",
-              "RelativeToolTip": "..\\..\\..\\..\\..\\UserManagement\\publish\\web.config",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAA4AAAAAAAAAA==",
+              "DocumentMoniker": "C:\\WebDeploy\\UserManagement\\web.config",
+              "RelativeDocumentMoniker": "..\\..\\..\\..\\..\\WebDeploy\\UserManagement\\web.config",
+              "ToolTip": "C:\\WebDeploy\\UserManagement\\web.config",
+              "RelativeToolTip": "..\\..\\..\\..\\..\\WebDeploy\\UserManagement\\web.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAEAAAAPAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
-              "WhenOpened": "2025-03-11T01:57:42.101Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "UsersController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\UsersController.cs",
-              "RelativeDocumentMoniker": "UserManagement\\Controllers\\UsersController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\UsersController.cs",
-              "RelativeToolTip": "UserManagement\\Controllers\\UsersController.cs",
-              "ViewState": "AgIAALYAAAAAAAAAAAAQwMcAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-07T09:42:19.15Z",
+              "WhenOpened": "2025-03-13T06:21:44.63Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "Details.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Users\\Details.cshtml",
-              "RelativeDocumentMoniker": "UserManagement\\Views\\Users\\Details.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Users\\Details.cshtml",
-              "RelativeToolTip": "UserManagement\\Views\\Users\\Details.cshtml",
-              "ViewState": "AgIAABUAAAAAAAAAAAAAACoAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-11T05:35:36.186Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "Program.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Program.cs",
-              "RelativeDocumentMoniker": "UserManagement\\Program.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Program.cs",
-              "RelativeToolTip": "UserManagement\\Program.cs",
-              "ViewState": "AgIAADwAAAAAAAAAAAAAABkAAAATAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:36:20.614Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
-              "Title": "_Layout.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Shared\\_Layout.cshtml",
-              "RelativeDocumentMoniker": "UserManagement\\Views\\Shared\\_Layout.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Shared\\_Layout.cshtml",
-              "RelativeToolTip": "UserManagement\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AgIAABQAAAAAAAAAAAAcwCcAAABRAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T05:08:18.628Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "LoginViewModel.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Models\\LoginViewModel.cs",
-              "RelativeDocumentMoniker": "UserManagement\\Models\\LoginViewModel.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Models\\LoginViewModel.cs",
-              "RelativeToolTip": "UserManagement\\Models\\LoginViewModel.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T05:05:04.489Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "Login.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Login.cshtml",
-              "RelativeDocumentMoniker": "UserManagement\\Views\\Account\\Login.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Login.cshtml",
-              "RelativeToolTip": "UserManagement\\Views\\Account\\Login.cshtml",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABMAAAAKAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T05:04:55.819Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "Index.cshtml",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Users\\Index.cshtml",
-              "RelativeDocumentMoniker": "UserManagement\\Views\\Users\\Index.cshtml",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Users\\Index.cshtml",
-              "RelativeToolTip": "UserManagement\\Views\\Users\\Index.cshtml",
-              "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2025-03-10T05:04:48.477Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "HomeController.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\HomeController.cs",
-              "RelativeDocumentMoniker": "UserManagement\\Controllers\\HomeController.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\HomeController.cs",
-              "RelativeToolTip": "UserManagement\\Controllers\\HomeController.cs",
-              "ViewState": "AgIAABIAAAAAAAAAAAAIwAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T03:28:26.771Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "User.cs",
-              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Models\\User.cs",
-              "RelativeDocumentMoniker": "UserManagement\\Models\\User.cs",
-              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Models\\User.cs",
-              "RelativeToolTip": "UserManagement\\Models\\User.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAIAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:50:14.44Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 0,
               "Title": "AccountController.cs",
               "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\AccountController.cs",
               "RelativeDocumentMoniker": "UserManagement\\Controllers\\AccountController.cs",
               "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\AccountController.cs",
               "RelativeToolTip": "UserManagement\\Controllers\\AccountController.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAH0AAAA4AAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABsAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-03-10T02:42:06.737Z"
+              "WhenOpened": "2025-03-12T06:11:36.333Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Program.cs",
+              "RelativeDocumentMoniker": "UserManagement\\Program.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Program.cs",
+              "RelativeToolTip": "UserManagement\\Program.cs",
+              "ViewState": "AgIAAA8AAAAAAAAAAAAAACUAAABJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T07:50:45.505Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Login.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Login.cshtml",
+              "RelativeDocumentMoniker": "UserManagement\\Views\\Account\\Login.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Login.cshtml",
+              "RelativeToolTip": "UserManagement\\Views\\Account\\Login.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA9AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-13T00:51:29.325Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "Register.cshtml",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Register.cshtml",
+              "RelativeDocumentMoniker": "UserManagement\\Views\\Account\\Register.cshtml",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Views\\Account\\Register.cshtml",
+              "RelativeToolTip": "UserManagement\\Views\\Account\\Register.cshtml",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-03-13T00:11:54.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\appsettings.json",
+              "RelativeDocumentMoniker": "UserManagement\\appsettings.json",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\appsettings.json",
+              "RelativeToolTip": "UserManagement\\appsettings.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAFAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-03-12T08:41:16.61Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "UsersController.cs",
+              "DocumentMoniker": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\UsersController.cs",
+              "RelativeDocumentMoniker": "UserManagement\\Controllers\\UsersController.cs",
+              "ToolTip": "C:\\Users\\User\\source\\repos\\UserManagement\\UserManagement\\Controllers\\UsersController.cs",
+              "RelativeToolTip": "UserManagement\\Controllers\\UsersController.cs",
+              "ViewState": "AgIAABEAAAAAAAAAAADwvzQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-12T07:31:17.748Z",
+              "EditorCaption": ""
             }
           ]
         }

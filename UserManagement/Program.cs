@@ -1,53 +1,69 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using UserManagement.Data;
+using Microsoft.Extensions.Logging;
+using Microsoft.AspNetCore.CookiePolicy;
 
 var builder = WebApplication.CreateBuilder(args);
 
-//  確保 `logs/` 目錄存在，避免 `stdout.log` 無法寫入
+// 設定 logs 目錄，確保 `stdout.log` 可寫入
 var logsPath = Path.Combine(Directory.GetCurrentDirectory(), "logs");
-if (!Directory.Exists(logsPath))
+Directory.CreateDirectory(logsPath);
+var logFilePath = Path.Combine(logsPath, "stdout.log");
+
+// 設定 ILogger
+var loggerFactory = LoggerFactory.Create(logging =>
 {
-    Directory.CreateDirectory(logsPath);
-    Console.WriteLine(" logs 目錄已建立！");
-}
+    logging.AddConsole().AddDebug().AddFile(Path.Combine(logsPath, "myapp-{Date}.txt"));
+});
+var logger = loggerFactory.CreateLogger<Program>();
+logger.LogInformation("應用程式啟動中...");
 
-//  判斷是否為正式環境（Production）
-bool isProduction = builder.Environment.IsProduction();
-
-//  讀取 `appsettings.json`，確保 `Connection String` 存在
+// 讀取 `Connection String`
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection")
     ?? throw new Exception("Connection string 'DefaultConnection' not found in appsettings.json");
 
-//  註冊 `DbContext`
+// 註冊 `DbContext`
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(connectionString));
 
-//  啟用 `Session` 服務
+// 設定 Session（確保 HTTP 環境可用）
+builder.Services.AddDistributedMemoryCache();
 builder.Services.AddSession(options =>
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // 設定 30 分鐘 Session
     options.Cookie.HttpOnly = true;
     options.Cookie.IsEssential = true;
-    options.Cookie.SecurePolicy = isProduction ? CookieSecurePolicy.Always : CookieSecurePolicy.None; // 允許 HTTP 開發，正式環境強制 HTTPS
-    options.Cookie.SameSite = SameSiteMode.Lax;
+    options.Cookie.SameSite = SameSiteMode.Lax; //  HTTP 下 `SameSite=Lax`，避免 `Secure` 限制
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None; //  允許 HTTP 存取
+    options.Cookie.MaxAge = TimeSpan.FromMinutes(30); //  確保 Cookie 存活時間
 });
 
-//  註冊 `MVC` 控制器
+// 註冊 `MVC` 控制器
 builder.Services.AddControllersWithViews();
 
-//  設定 `CSRF` 防護（避免 `HTTPS` 限制導致 `500`）
+// 設定 `Antiforgery`（確保 CSRF 防護正常）
 builder.Services.AddAntiforgery(options =>
 {
-    options.Cookie.SecurePolicy = isProduction && builder.Configuration["Environment"] == "Production"
-        ? CookieSecurePolicy.Always  // 只有在有 HTTPS 環境時強制 HTTPS
-        : CookieSecurePolicy.None;   // 允許 HTTP，避免 Antiforgery 問題
+    options.HeaderName = "X-CSRF-TOKEN";
+    options.Cookie.SecurePolicy = CookieSecurePolicy.None; // 允許 HTTP
+});
+
+// 設定 `Cookie` 原則
+builder.Services.Configure<CookiePolicyOptions>(options =>
+{
+    options.MinimumSameSitePolicy = SameSiteMode.Lax; //  HTTP 可用
+    options.Secure = CookieSecurePolicy.None; //  避免 `Secure` 限制
+    options.HttpOnly = HttpOnlyPolicy.Always;
 });
 
 var app = builder.Build();
 
-//  錯誤處理（`Development` 模式顯示錯誤，`Production` 導向錯誤頁面）
-if (!isProduction)
+// 記錄 `應用程式啟動`
+File.AppendAllText(logFilePath, $"[{DateTime.UtcNow}] 應用程式已啟動\n");
+
+// 錯誤處理
+if (!builder.Environment.IsProduction())
 {
     app.UseDeveloperExceptionPage();
 }
@@ -56,53 +72,22 @@ else
     app.UseExceptionHandler("/Home/Error");
 }
 
-//  確保 `Production` 模式使用 `HTTPS`
-if (isProduction)
-{
-    app.UseHttpsRedirection();
-}
-
-//  啟用靜態檔案、Session、路由
+// 啟用靜態檔案、Session、路由
 app.UseStaticFiles();
 app.UseRouting();
 app.UseSession();
-
-//  啟用身份驗證 & 授權
 app.UseAuthentication();
 app.UseAuthorization();
+app.UseCookiePolicy();
 
-//  設定 `Cookie` 原則
-app.UseCookiePolicy(new CookiePolicyOptions
-{
-    MinimumSameSitePolicy = SameSiteMode.Lax,
-    Secure = isProduction ? CookieSecurePolicy.Always : CookieSecurePolicy.None
-});
-
-//  記錄 `IIS` 請求，方便 Debug
+// 記錄 IIS 請求，方便 Debug
 app.Use(async (context, next) =>
 {
     Console.WriteLine($"[{DateTime.UtcNow}] {context.Request.Method} {context.Request.Path}");
     await next();
 });
 
-//  記錄 `Exception`，確保 `stdout.log` 可記錄錯誤
-app.Use(async (context, next) =>
-{
-    try
-    {
-        await next();
-    }
-    catch (Exception ex)
-    {
-        Console.WriteLine($" 例外錯誤: {ex.Message}");
-        throw;
-    }
-});
-var logFilePath = Path.Combine(logsPath, "stdout.log");
-
-// 強制在應用程式啟動時記錄
-File.AppendAllText(logFilePath, $"[{DateTime.UtcNow}] 應用程式已啟動\n");
-
+// 記錄 Exception
 app.Use(async (context, next) =>
 {
     try
@@ -113,16 +98,23 @@ app.Use(async (context, next) =>
     {
         var errorLog = $"[{DateTime.UtcNow}] 例外錯誤: {ex.Message}\n{ex.StackTrace}\n";
         File.AppendAllText(logFilePath, errorLog);
-        Console.WriteLine($" 記錄錯誤: {ex.Message}");
+        logger.LogError(ex, "發生未處理的例外錯誤");
+        Console.WriteLine($"[ERROR] {ex.Message}");
         throw;
     }
 });
 
-//  設定 `MVC` 路由
+// 記錄 Session Id
+app.Use(async (context, next) =>
+{
+    Console.WriteLine($"[DEBUG] Session Id: {context.Session.Id}");
+    await next();
+});
+
+// 設定 MVC 路由
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
-//  顯示應用程式啟動訊息
-Console.WriteLine(" 應用程式已啟動");
+logger.LogInformation("應用程式已成功啟動");
 app.Run();
