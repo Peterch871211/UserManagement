@@ -25,7 +25,7 @@ namespace UserManagement.Controllers
         }
 
         [HttpPost]
-        [IgnoreAntiforgeryToken]
+        [ValidateAntiForgeryToken]
         public IActionResult Register(RegisterViewModel model)
         {
             if (!ModelState.IsValid)
@@ -79,7 +79,7 @@ namespace UserManagement.Controllers
         }
         //驗證登入資訊
         [HttpPost]
-        [IgnoreAntiforgeryToken]
+        [ValidateAntiForgeryToken]
         public IActionResult Login(LoginViewModel model)
         {
 
